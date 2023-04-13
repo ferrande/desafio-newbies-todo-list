@@ -44,3 +44,12 @@
   input:hover, button:hover {
     cursor: pointer;
   }
+
+  .wrapper {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1rem 5rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
