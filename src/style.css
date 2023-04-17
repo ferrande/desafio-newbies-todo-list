@@ -10,7 +10,9 @@
     --blue-500: #4E6EDE;
     --blue-600: #3352C3;
     --green-500: #26C277;
+    --green-600: #093d24;
     --yellow-500: #FFD231;
+    --yellow-600: #644f04;
   }
 
   :focus {
@@ -103,7 +105,7 @@
   }
 
   .new_task_form button i {
-    font-size: 22px;
+    font-size: 20px;
     margin-left: 8px;
   }
 
@@ -111,3 +113,47 @@
     background-color: var(--black);
     color: var(--gray-200);
   } */
+
+.task_counter {
+  max-width: 100%;
+  padding: 1.25rem;
+  margin: 48px auto;
+  border-top: 3px solid var(--gray-400);
+  border-bottom: 3px solid var(--gray-400);
+  display: flex;
+  justify-content: space-between;
+}
+
+.task_counter strong {
+  font-size: 0.875rem;
+
+}
+
+.task_counter span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+.counter {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.all_tasks {
+  color: var(--yellow-500);
+}
+
+.all_tasks span {
+  background-color: var(--yellow-500);
+  color: var(--yellow-600);
+}
+
+.finished_tasks {
+  color: var(--green-500);
+}
+
+.finished_tasks span {
+  background-color: var(--green-500);
+  color: var(--green-600);
+}
