@@ -157,3 +157,19 @@
   background-color: var(--green-500);
   color: var(--green-600);
 }
+
+.empty_tasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-300);
+  font-size: 1.2rem;
+}
+
+.empty_tasks img {
+  margin-right: 32px;
+}
+
+.empty_tasks div p:first-child {
+  font-weight: bold;
+}
