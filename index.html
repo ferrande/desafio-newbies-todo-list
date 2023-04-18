@@ -19,8 +19,8 @@
         </header>
         <main>
             <form class="new_task_form">
-                <input type="text" name="" id="" placeholder="Adicione uma nova tarefa">
-                <button type="submit" disabled>Criar <i class="ph-bold ph-plus-circle"></i></button>
+                <input type="text" name="" id="task_input" placeholder="Adicione uma nova tarefa">
+                <button type="submit" onclick="addTask(event)">Criar <i class="ph-bold ph-plus-circle"></i></button>
             </form>
             <section class="task_counter">
                 <div class="all_tasks">
@@ -39,20 +39,20 @@
                     <p>Crie tarefas e organize seus itens a fazer</p>
                 </div>
             </section>
-            <ul class="task_list">
+            <ul id="task_list" class="task_list">
                 <li class="task todo">
                     <div>
-                        <i class="ph-duotone ph-circle-dashed check_btn"></i>
+                        <i class="ph-duotone ph-circle-dashed check_btn" onclick="completeTask(event)"></i>
                         <p>Estudar CSS</p>
                     </div>
-                    <i class="ph-duotone ph-trash delete_btn"></i>
+                    <i class="ph-duotone ph-trash delete_btn" onclick="deleteTask(event)"></i>
                 </li>
                 <li class="task done">
                     <div>
-                        <i class="ph-duotone ph-check-circle check_btn"></i>
-                        <p class="strikethrough">Estudar CSS</p>
+                        <i class="ph-duotone ph-check-circle check_btn" onclick="pendingTask(event)"></i>
+                        <p class="strikethrough">Estudar Javascript</p>
                     </div>
-                    <i class="ph-duotone ph-trash delete_btn"></i>
+                    <i class="ph-duotone ph-trash delete_btn" onclick="deleteTask(event)"></i>
                 </li>
             </ul>
             
