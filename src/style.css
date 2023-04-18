@@ -70,9 +70,6 @@
       font-size: 87.5%;
     }
 
-    .wrapper: grid-template-columns: 1fr;
-  }
-
   header {
     display: flex;
     justify-content: center;
