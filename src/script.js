@@ -89,6 +89,9 @@ function completeTask(event) {
     const todoIcon = event.target;
     todoIcon.classList.add("hidden");
 
+    const text = todoIcon.parentNode.childNodes[2];
+    text.classList.add("strikethrough");
+
     const todoTaskId = todoIcon.parentNode.parentNode.id;
     const todoTask = document.getElementById(todoTaskId);
 
@@ -111,6 +114,9 @@ function pendingTask(event) {
 
     const doneIcon = event.target;
     doneIcon.classList.add("hidden");
+
+    const text = doneIcon.parentNode.childNodes[2];
+    text.classList.remove("strikethrough");
 
     const pendingTaskId = doneIcon.parentNode.parentNode.id;
     const pendingTask = document.getElementById(pendingTaskId);
