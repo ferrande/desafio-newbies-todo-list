@@ -5,12 +5,12 @@ function uid() {
 let taskData = [
     {
         id: uid(),
-        name: 'Estudar JavaScript',
+        name: 'Digite na barra acima e clique no botão para criar sua primeira tarefa',
         toDo: true,
     },
     {
         id: uid(),
-        name: 'Estudar React',
+        name: 'Exemplo de task completa',
         toDo: false,
     }
 ]
@@ -98,5 +98,14 @@ function deleteTask(event) {
 }
 
 //sync HTML with taskData
+for(let i = 0; i < taskData.length; i++) {
+    let currentTask = taskData[i];
+    const taskItem = createNewTaskEl(currentTask.name, currentTask.id);
+    taskList.appendChild(taskItem);
+}
+// for(const task of taskData) {
+//     const taskItem = createNewTaskEl(task.name, task.id);
+//     taskList.appendChild(taskItem);
+// }    
 
 //tasks counter
