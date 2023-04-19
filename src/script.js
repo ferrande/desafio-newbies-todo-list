@@ -2,19 +2,12 @@ function uid() {
     return Date.now().toString(16) + Math.random().toString(16).substring(2);
 }
 
-let taskData = [];
-
 //sync with localstorage
 
-if (taskData !== 0) {
-    window.localStorage.getItem("task");
-    JSON.parse(window.localStorage.getItem("task"));
-   } else {
-       taskData = [];
-   }
+let taskData = localStorage.getItem('task') ? JSON.parse(localStorage.getItem("task")) : [];
 
-function setLocalStorage(taskData) {
-    window.localStorage.setItem("task", JSON.stringify(taskData));
+function setLocalStorage(data) {
+    localStorage.setItem("task", JSON.stringify(data));
 }
 
 const addTaskInput = document.getElementById("task_input");
@@ -119,7 +112,7 @@ function addTask(event) {
 
     verifyIfListIsEmpty();
     counter();
-    setLocalStorage(taskData);
+    setLocalStorage(data);
 }
 
 //update - complete task
@@ -196,7 +189,7 @@ function deleteTask(event) {
 
     verifyIfListIsEmpty();
     counter();
-    setLocalStorage(taskData);
+    setLocalStorage(data);
 }
 
 //sync HTML with taskData
