@@ -2,18 +2,7 @@ function uid() {
     return Date.now().toString(16) + Math.random().toString(16).substring(2);
 }
 
-let taskData = [
-    {
-        id: uid(),
-        name: 'Digite na barra acima e clique no botão para criar sua primeira tarefa',
-        toDo: true,
-    },
-    {
-        id: uid(),
-        name: 'Exemplo de task completa',
-        toDo: true,
-    }
-]
+let taskData = []
 
 const addTaskInput = document.getElementById("task_input");
 const addTaskButton = document.getElementsByTagName("button")[0];
