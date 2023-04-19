@@ -4,10 +4,10 @@ function uid() {
 
 //sync with localstorage
 
-let taskData = localStorage.getItem('task') ? JSON.parse(localStorage.getItem("task")) : [];
+let taskData = localStorage.getItem('task') ? JSON.parse(localStorage.getItem('task')) : [];
 
 function setLocalStorage(data) {
-    localStorage.setItem("task", JSON.stringify(data));
+    localStorage.setItem('task', JSON.stringify(data));
 }
 
 const addTaskInput = document.getElementById("task_input");
