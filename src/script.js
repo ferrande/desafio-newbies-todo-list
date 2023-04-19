@@ -102,13 +102,32 @@ function completeTask(event) {
         if (item.id === todoTaskId) {
             item.toDo = false;
         }
-        return item.id === todoTaskId;
     })
 }
 
 //update - pending task
 function pendingTask(event) {
     console.log('Task marked as pending');
+
+    const doneIcon = event.target;
+    doneIcon.classList.add("hidden");
+
+    const pendingTaskId = doneIcon.parentNode.parentNode.id;
+    const pendingTask = document.getElementById(pendingTaskId);
+
+    pendingTask.classList.add("todo");
+    pendingTask.classList.remove("done");
+
+    const todoIcon = doneIcon.parentNode.childNodes[0];
+    todoIcon.classList.remove("hidden");
+
+    taskData.find((item) => {
+        if (item.id === pendingTaskId) {
+            item.toDo = true;
+        }
+    })
+
+
 }
 
 //delete task
