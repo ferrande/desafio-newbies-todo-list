@@ -102,7 +102,7 @@ function completeTask(event) {
         if (item.id === todoTaskId) {
             item.toDo = false;
         }
-    })
+    });
 }
 
 //update - pending task
@@ -125,7 +125,7 @@ function pendingTask(event) {
         if (item.id === pendingTaskId) {
             item.toDo = true;
         }
-    })
+    });
 
 
 }
@@ -133,6 +133,18 @@ function pendingTask(event) {
 //delete task
 function deleteTask(event) {
     console.log('Task deleted');
+
+    const taskToDeleteId = event.target.parentNode.id;
+    const taskToDelete = document.getElementById(taskToDeleteId);
+
+    const tasksMinusDeletedOne = taskData.filter(
+        (task) => {
+            return task.id !== taskToDeleteId;
+        }
+    );
+    
+    taskData = tasksMinusDeletedOne;
+    taskList.removeChild(taskToDelete);
 }
 
 //sync HTML with taskData
