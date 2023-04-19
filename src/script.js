@@ -20,6 +20,16 @@ const addTaskButton = document.getElementsByTagName("button")[0];
 const taskList = document.getElementById("task_list");
 const todoCounterText = document.getElementById("todo_counter")
 const doneCounterText = document.getElementById("done_counter")
+const emptyList = document.getElementById("empty_list")
+
+//check for empty list
+function verifyIfListIsEmpty() {
+    if(taskData.length === 0) {
+        emptyList.classList.remove("hidden")
+    } else {
+        emptyList.classList.add("hidden")
+    }
+} 
 
 //tasks counter
 function counter() {
@@ -37,7 +47,7 @@ function counter() {
 
     doneCounterText.innerText = `${doneCounter}`;
 }
-
+verifyIfListIsEmpty();
 counter();
 
 //create a new task element
@@ -103,6 +113,8 @@ function addTask(event) {
     taskList.appendChild(taskElement);
 
     addTaskInput.value = '';
+
+    verifyIfListIsEmpty();
     counter();
 }
 
@@ -178,6 +190,7 @@ function deleteTask(event) {
     taskData = tasksMinusDeletedOne;
     taskList.removeChild(taskToDelete);
 
+    verifyIfListIsEmpty();
     counter();
 }
 
