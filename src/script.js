@@ -2,21 +2,34 @@ function uid() {
     return Date.now().toString(16) + Math.random().toString(16).substring(2);
 }
 
-let taskData = []
+let taskData = [];
+
+//sync with localstorage
+
+if (taskData !== 0) {
+    window.localStorage.getItem("task");
+    JSON.parse(window.localStorage.getItem("task"));
+   } else {
+       taskData = [];
+   }
+
+function setLocalStorage(taskData) {
+    window.localStorage.setItem("task", JSON.stringify(taskData));
+}
 
 const addTaskInput = document.getElementById("task_input");
 const addTaskButton = document.getElementsByTagName("button")[0];
 const taskList = document.getElementById("task_list");
-const todoCounterText = document.getElementById("todo_counter")
-const doneCounterText = document.getElementById("done_counter")
-const emptyList = document.getElementById("empty_list")
+const todoCounterText = document.getElementById("todo_counter");
+const doneCounterText = document.getElementById("done_counter");
+const emptyList = document.getElementById("empty_list");
 
 //check for empty list
 function verifyIfListIsEmpty() {
     if(taskData.length === 0) {
-        emptyList.classList.remove("hidden")
+        emptyList.classList.remove("hidden");
     } else {
-        emptyList.classList.add("hidden")
+        emptyList.classList.add("hidden");
     }
 } 
 
@@ -106,6 +119,7 @@ function addTask(event) {
 
     verifyIfListIsEmpty();
     counter();
+    setLocalStorage(taskData);
 }
 
 //update - complete task
@@ -182,6 +196,7 @@ function deleteTask(event) {
 
     verifyIfListIsEmpty();
     counter();
+    setLocalStorage(taskData);
 }
 
 //sync HTML with taskData
