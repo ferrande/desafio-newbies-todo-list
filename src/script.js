@@ -47,6 +47,7 @@ function counter() {
 
     doneCounterText.innerText = `${doneCounter}`;
 }
+
 verifyIfListIsEmpty();
 counter();
 
