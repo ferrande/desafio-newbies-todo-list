@@ -11,7 +11,7 @@ let taskData = [
     {
         id: uid(),
         name: 'Exemplo de task completa',
-        toDo: false,
+        toDo: true,
     }
 ]
 
@@ -85,6 +85,25 @@ function addTask(event) {
 //update - complete task
 function completeTask(event) {
     console.log('Task completed');
+
+    const todoIcon = event.target;
+    todoIcon.classList.add("hidden");
+
+    const todoTaskId = todoIcon.parentNode.parentNode.id;
+    const todoTask = document.getElementById(todoTaskId);
+
+    todoTask.classList.add("done");
+    todoTask.classList.remove("todo");
+
+    const doneIcon = todoIcon.parentNode.childNodes[1];
+    doneIcon.classList.remove("hidden");
+
+    taskData.find((item) => {
+        if (item.id === todoTaskId) {
+            item.toDo = false;
+        }
+        return item.id === todoTaskId;
+    })
 }
 
 //update - pending task
@@ -103,9 +122,5 @@ for(let i = 0; i < taskData.length; i++) {
     const taskItem = createNewTaskEl(currentTask.name, currentTask.id);
     taskList.appendChild(taskItem);
 }
-// for(const task of taskData) {
-//     const taskItem = createNewTaskEl(task.name, task.id);
-//     taskList.appendChild(taskItem);
-// }    
 
 //tasks counter
