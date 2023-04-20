@@ -1,4 +1,8 @@
-# Desafio Newbies - To-Do List
+<h1 align="center"> Desafio Newbies - To-Do List</h1>
+
+<p align="center">
+<img width="70%" height="70%" src="https://user-images.githubusercontent.com/116698705/233361915-16347959-713d-4367-9ae4-0dc302f6b83c.png">
+</p>
 
 ## Objetivos
  
