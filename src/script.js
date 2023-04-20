@@ -6,8 +6,8 @@ function uid() {
 
 let taskData = localStorage.getItem('task') ? JSON.parse(localStorage.getItem('task')) : [];
 
-function setLocalStorage(data) {
-    localStorage.setItem('task', JSON.stringify(data));
+function setLocalStorage(taskData) {
+    localStorage.setItem('task', JSON.stringify(taskData));
 }
 
 const addTaskInput = document.getElementById("task_input");
@@ -112,7 +112,7 @@ function addTask(event) {
 
     verifyIfListIsEmpty();
     counter();
-    setLocalStorage(data);
+    setLocalStorage(taskData);
 }
 
 //update - complete task
@@ -141,6 +141,7 @@ function completeTask(event) {
     });
     
     counter();
+    setLocalStorage(taskData);
 }
 
 //update - pending task
@@ -169,6 +170,7 @@ function pendingTask(event) {
     });
 
     counter();
+    setLocalStorage(taskData);
 }
 
 //delete task
@@ -189,7 +191,7 @@ function deleteTask(event) {
 
     verifyIfListIsEmpty();
     counter();
-    setLocalStorage(data);
+    setLocalStorage(taskData);
 }
 
 //sync HTML with taskData
