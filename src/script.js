@@ -2,32 +2,27 @@ function uid() {
     return Date.now().toString(16) + Math.random().toString(16).substring(2);
 }
 
-let taskData = [
-    {
-        id: uid(),
-        name: 'Digite na barra acima e clique no botão para criar sua primeira tarefa',
-        toDo: true,
-    },
-    {
-        id: uid(),
-        name: 'Exemplo de task completa',
-        toDo: true,
-    }
-]
+//sync with localstorage
+
+let taskData = localStorage.getItem('task') ? JSON.parse(localStorage.getItem('task')) : [];
+
+function setLocalStorage(taskData) {
+    localStorage.setItem('task', JSON.stringify(taskData));
+}
 
 const addTaskInput = document.getElementById("task_input");
 const addTaskButton = document.getElementsByTagName("button")[0];
 const taskList = document.getElementById("task_list");
-const todoCounterText = document.getElementById("todo_counter")
-const doneCounterText = document.getElementById("done_counter")
-const emptyList = document.getElementById("empty_list")
+const todoCounterText = document.getElementById("todo_counter");
+const doneCounterText = document.getElementById("done_counter");
+const emptyList = document.getElementById("empty_list");
 
 //check for empty list
 function verifyIfListIsEmpty() {
     if(taskData.length === 0) {
-        emptyList.classList.remove("hidden")
+        emptyList.classList.remove("hidden");
     } else {
-        emptyList.classList.add("hidden")
+        emptyList.classList.add("hidden");
     }
 } 
 
@@ -117,6 +112,7 @@ function addTask(event) {
 
     verifyIfListIsEmpty();
     counter();
+    setLocalStorage(taskData);
 }
 
 //update - complete task
@@ -145,6 +141,7 @@ function completeTask(event) {
     });
     
     counter();
+    setLocalStorage(taskData);
 }
 
 //update - pending task
@@ -173,6 +170,7 @@ function pendingTask(event) {
     });
 
     counter();
+    setLocalStorage(taskData);
 }
 
 //delete task
@@ -193,6 +191,7 @@ function deleteTask(event) {
 
     verifyIfListIsEmpty();
     counter();
+    setLocalStorage(taskData);
 }
 
 //sync HTML with taskData
