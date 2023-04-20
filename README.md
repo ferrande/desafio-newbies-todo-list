@@ -4,6 +4,6 @@
  
 Esse projeto, junto a um desafio, proposto pelo programa Newbies da [levva](https://www.linkedin.com/company/levva/), foi desenvolvido com a finalidade de praticar conceitos de HTML, CSS e JavaScript. 
 
-## License
+## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)
